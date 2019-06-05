@@ -52,54 +52,54 @@ __version__ = '1.4-b'
 
 
 
-__help_text__ = """ 
+__help_text__ = """
      APSYNSIM, A REAL-TIME APERTURE SYNTHESIS SIMULATOR
 
-                     IVAN MARTI-VIDAL 
+                     IVAN MARTI-VIDAL
 (ONSALA SPACE OBSERVATORY, NORDIC ALMA REGIONAL CENTER NODE)
 
 You can click and drag the antennas in the plot called "ARRAY CONFIGURATION".
-When you drag an antenna, all other plots (UV PLANE, DIRTY BEAM, and DIRTY 
-IMAGE) will be updated automatically (may need some time to refresh, 
+When you drag an antenna, all other plots (UV PLANE, DIRTY BEAM, and DIRTY
+IMAGE) will be updated automatically (may need some time to refresh,
 especially if working on Windows and/or with many antennas).
 
-You can also click on any point of the DIRTY BEAM, MODEL IMAGE, or DIRTY 
-IMAGE plots, and the program will tell you the intensity value and the pixel 
+You can also click on any point of the DIRTY BEAM, MODEL IMAGE, or DIRTY
+IMAGE plots, and the program will tell you the intensity value and the pixel
 coordinates.
 
-If you click on the UV PLANE image, the program will print the value of the 
+If you click on the UV PLANE image, the program will print the value of the
 source Fourier transform at that point. If you click close to a point observed
 with the interferometer, the program will tell you the baseline and hour
 angle of observation.
 
-You can also change the observing latitude, hour-angle coverage, source 
-declination, and observing wavelength by clicking on the blue sliders at 
-the bottom-right corner of the figure. The plots will be updated 
+You can also change the observing latitude, hour-angle coverage, source
+declination, and observing wavelength by clicking on the blue sliders at
+the bottom-right corner of the figure. The plots will be updated
 automatically (may also need some time to refresh all plots).
 
 The dirty beam is computed using Briggs weighting. The robustness parameter
-can be changed by shifting the corresponding blue slider (robustness of -2 
+can be changed by shifting the corresponding blue slider (robustness of -2
 tends to uniform weighting, whereas +2 tends to natural weighting).
 
-You can add and/or subtract antennas by pressing the "+ Antenna" and 
-"- Antenna" buttons. New antennas are inserted at the array origin (0,0). 
-If you add, drag, and subtract an antenna, the program will remember the 
+You can add and/or subtract antennas by pressing the "+ Antenna" and
+"- Antenna" buttons. New antennas are inserted at the array origin (0,0).
+If you add, drag, and subtract an antenna, the program will remember the
 last antenna positions if you add them again.
 
-You can save the current array, load a new array (for instance, from the 
-EXAMPLES folder), and/or load a new source model (for instance, from 
-the EXAMPLES folder) by pressing the corresponding buttons "Save array", 
+You can save the current array, load a new array (for instance, from the
+EXAMPLES folder), and/or load a new source model (for instance, from
+the EXAMPLES folder) by pressing the corresponding buttons "Save array",
 "Load array" and "Load model".
 
-You can also zoom in/out by pressing "Z" or "z" (respectively). The program 
+You can also zoom in/out by pressing "Z" or "z" (respectively). The program
 will then zoom using the current cursor position as zooming center.
 
 Pressing "c" will toggle the color code of the figures (from hue to grayscale).
 
-Pressing "u" will pop-up a window with several plots in Fourier space. 
+Pressing "u" will pop-up a window with several plots in Fourier space.
 
 Pressing the "Reduce data" button will open a new window, where you can
-CLEAN your dirty image and apply corrupting gains to your antennas (see 
+CLEAN your dirty image and apply corrupting gains to your antennas (see
 help in that window for more details).
 
 Enjoy!
@@ -108,14 +108,14 @@ Enjoy!
 """
 
 
-__CLEAN_help_text__ = """ 
+__CLEAN_help_text__ = """
 APSYNSIM - CLEAN GUI
 
-Here you can experiment with CLEAN deconvolution on (noise-free) 
+Here you can experiment with CLEAN deconvolution on (noise-free)
 visibilities. You can also corrupt the visibilities by adding a complex
-gain to one of your antennas (or baselines). 
+gain to one of your antennas (or baselines).
 
-Clicking and dragging, with the LEFT mouse button, on the RESIDUALS image 
+Clicking and dragging, with the LEFT mouse button, on the RESIDUALS image
 creates new CLEAN mask regions. Clicking and dragging with the RIGHT mouse
 button removes CLEAN mask regions. You can add as many CLEAN mask regions
 as you want.
@@ -123,21 +123,21 @@ as you want.
 The CLEAN gain and number of iterations can be changed in the text boxes.
 Pressing CLEAN executes the iterations, refreshing all images in real time.
 You can further click on CLEAN, to continue deconvolving. The box "Thres"
-is the CLEAN threshold (in Jy per beam). Setting it to negative values will 
+is the CLEAN threshold (in Jy per beam). Setting it to negative values will
 allow CLEANing negative components.
 
 
-Pressing RELOAD will undo all CLEANING and update the images from the 
-main window. That is, if you change anything in the main program window 
-(e.g., observing wavelength, antenna positions, etc.), pressing RELOAD 
+Pressing RELOAD will undo all CLEANING and update the images from the
+main window. That is, if you change anything in the main program window
+(e.g., observing wavelength, antenna positions, etc.), pressing RELOAD
 will apply such changes to the images in the CLEAN interface.
 
-TIP: You can load more than one CLEAN GUI, change anything in the main 
-window and press "RELOAD" just in one of the GUIs. This way, you can 
-compare directly how the changes you made in the main window affect the 
+TIP: You can load more than one CLEAN GUI, change anything in the main
+window and press "RELOAD" just in one of the GUIs. This way, you can
+compare directly how the changes you made in the main window affect the
 CLEANing!
 
-Pressing "+/- Resid" will add (or remove) the residuals from the CLEANed 
+Pressing "+/- Resid" will add (or remove) the residuals from the CLEANed
 image.  By default, the residuals are NOT added (i.e., only the restored
 CLEAN components are shown in the CLEAN image).
 
@@ -147,18 +147,18 @@ the CLEAN beam when plotting. Default status is to apply the restore.
 Pressing "Rescale" will rescale the color palette (e.g., to see better
 the structure of the residuals).
 
-Pressing "True source (conv.)" will show the true source structure 
-convolved with the CLEAN beam. This is to compare the fidelity of the 
-CLEAN deconvolution algorithm, by comparing the CLEAN image to the 
+Pressing "True source (conv.)" will show the true source structure
+convolved with the CLEAN beam. This is to compare the fidelity of the
+CLEAN deconvolution algorithm, by comparing the CLEAN image to the
 true source brightness distribution (downgraded to the CLEAN resolution).
 
 You can add random noise to your visibilities by setting a sensitivity
-(in the "Sensit." text) and pressing "Redo Noise". Any time that you 
-press this button, a new realisation of the random noise will be 
-computed. "Sensit." is the expected rms that you would get from of a 
-source-free observation, using natural weighting. Basically, the noise 
+(in the "Sensit." text) and pressing "Redo Noise". Any time that you
+press this button, a new realisation of the random noise will be
+computed. "Sensit." is the expected rms that you would get from of a
+source-free observation, using natural weighting. Basically, the noise
 added to each visibility is proportional to Sensit.*sqrt(Nbas*Nt), where
-Nbas is the number of baselines and Nt is the number of integration 
+Nbas is the number of baselines and Nt is the number of integration
 times per baseline.
 
 -----------------------------
@@ -166,27 +166,27 @@ HOW TO ADD A CORRUPTING GAIN
 -----------------------------
 
 Just select an antenna from the "Ant. 1" list to corrupt it. If you select
-a different antenna from the "Ant. 2" list, only the baseline between 
+a different antenna from the "Ant. 2" list, only the baseline between
 the two antennas will be corrupted. But if the two antennas are the same,
 then ALL the baselines to that antenna will be corrupted.
 
-The two first sliders ("From integration" and "to integration") mark the 
+The two first sliders ("From integration" and "to integration") mark the
 first and last observing scans where the corruption term will be applied.
 By default, the whole duration of the experiment is selected.
 
-The last two sliders ("Amplitude gain" and "phase gain") define the gain 
-that will be applied to the corrupted antenna. 
+The last two sliders ("Amplitude gain" and "phase gain") define the gain
+that will be applied to the corrupted antenna.
 
 The button "APPLY GAIN" actually applies the gain and reloads the new
-images. 
+images.
 
 The button "RESET GAIN", undoes the gain correction (so the data become
 perfectly calibrated again).
 
-NOTICE THAT if a new antenna is added, or subtracted, the gains are 
-reset automatically (but you will need to refresh the images in this 
-window, by pressing the "RESET" button, just below the "CLEAN" 
-button, to load the correct images). 
+NOTICE THAT if a new antenna is added, or subtracted, the gains are
+reset automatically (but you will need to refresh the images in this
+window, by pressing the "RESET" button, just below the "CLEAN"
+button, to load the correct images).
 
 """
 
@@ -194,7 +194,7 @@ button, to load the correct images).
 class Interferometer(object):
 
   def quit(self,event=None):
-  
+
     self.tks.destroy()
     sys.exit()
 
@@ -240,7 +240,7 @@ class Interferometer(object):
     except:
       d1 = os.getcwd()
       conf = open(os.path.join(d1,'APSYNSIM.config'))
-      
+
     for line in conf.readlines():
       temp=line.replace(' ','')
       if len(temp)>2:
@@ -327,7 +327,7 @@ class Interferometer(object):
 
 
     self.antPlot = self.figUV.add_subplot(231,aspect='equal')
-    self.UVPlot = self.figUV.add_subplot(232,aspect='equal',axisbg=(0.4,0.4,0.4))
+    self.UVPlot = self.figUV.add_subplot(232,aspect='equal',facecolor=(0.4,0.4,0.4))
     self.beamPlot = self.figUV.add_subplot(233,aspect='equal')
     self.modelPlot = self.figUV.add_subplot(235,aspect='equal')
     self.dirtyPlot = self.figUV.add_subplot(236,aspect='equal')
@@ -362,9 +362,9 @@ class Interferometer(object):
 
     self.fmtH = r'$\phi = $ %3.1f$^\circ$   $\delta = $ %3.1f$^\circ$' "\n" r'H = %3.1fh / %3.1fh'
     self.fmtBas = r'Bas %i $-$ %i  at  H = %4.2fh'
-    self.fmtVis = r'Amp: %.1e Jy.   Phase: %5.1f deg.' 
+    self.fmtVis = r'Amp: %.1e Jy.   Phase: %5.1f deg.'
     self.fmtA = 'N = %i'
-    self.fmtA2 = '  Picked Ant. #%i' 
+    self.fmtA2 = '  Picked Ant. #%i'
     self.fmtA3 = '\n%6.1fm | %6.1fm'
     fmtB1 = r'$\lambda = $ %4.1fmm  '%(self.wavelength[2]*1.e6)
     self.fmtB = fmtB1 + "\n" + r'% 4.2f Jy/beam' + "\n" + r'$\Delta\alpha = $ % 4.2f / $\Delta\delta = $ % 4.2f '
@@ -382,13 +382,13 @@ class Interferometer(object):
     self.wax['add'] = pl.axes([0.07,0.14,0.08,0.05])
     self.wax['rem'] = pl.axes([0.155,0.14,0.08,0.05])
     self.wax['reduce'] = pl.axes([0.24,0.14,0.08,0.05])
-    self.wax['save'] =  pl.axes([0.07,0.08,0.08,0.05]) 
+    self.wax['save'] =  pl.axes([0.07,0.08,0.08,0.05])
     self.wax['loadarr']=pl.axes([0.155,0.08,0.08,0.05])
     self.wax['quit']=pl.axes([0.155,0.02,0.08,0.05])
     self.wax['loadmod']=pl.axes([0.24,0.08,0.08,0.05])
-    self.wax['gammacorr']=pl.axes([0.46,0.08,0.13,0.02],axisbg='white')
-    self.wax['diameter']=pl.axes([0.825,0.08,0.10,0.02],axisbg='white')
-    self.wax['subarrwgt']=pl.axes([0.15,0.58,0.12,0.02],axisbg='white')
+    self.wax['gammacorr']=pl.axes([0.46,0.08,0.13,0.02],facecolor='white')
+    self.wax['diameter']=pl.axes([0.825,0.08,0.10,0.02],facecolor='white')
+    self.wax['subarrwgt']=pl.axes([0.15,0.58,0.12,0.02],facecolor='white')
     self.widget['robust'] = Slider(self.wax['robust'],r'Robust',-2.,2.,valinit=0.0)
     self.widget['lat'] = Slider(self.wax['lat'],r'Lat (deg)',-90.,90.,valinit=self.lat/self.deg2rad)
     self.widget['dec'] = Slider(self.wax['dec'],r'Dec (deg)',-90.,90.,valinit=self.dec/self.deg2rad)
@@ -458,10 +458,10 @@ class Interferometer(object):
 
     if self.tks is not None:
       self.myCLEAN = CLEANer(self)
-   
+
 
   def readAntennas(self,antenna_file):
-    
+
     self.subarray = False
     self.Hcov = [-12.0*self.Hfac,12.0*self.Hfac]
     self.Hmax = np.pi
@@ -479,11 +479,11 @@ class Interferometer(object):
       self.antPos2=[]
       self.Nant2 = 0
 
-    if len(antenna_file)>0: 
+    if len(antenna_file)>0:
      if not os.path.exists(antenna_file):
       self.showError("\n\nAntenna file %s does not exist!\n\n"%antenna_file)
       return False
-    
+
      else:
       antPos=[]
       antPos2=[]
@@ -495,24 +495,24 @@ class Interferometer(object):
       for li,l in enumerate(fi.readlines()):
         comm = l.find('#')
         if comm>=0:
-          l = l[:comm]     
+          l = l[:comm]
         it = l.split()
         if len(it)>0:
 
-          if it[0]=='WAVELENGTH':  
+          if it[0]=='WAVELENGTH':
             self.wavelength = [float(it[1])*1.e-3,float(it[2])*1.e-3]
             self.wavelength.append((self.wavelength[0]+self.wavelength[1])/2.)
-          elif it[0]=='ANTENNA':   
+          elif it[0]=='ANTENNA':
             antPos.append(map(float,it[1:]))
             Nant += 1
             antPos[-1][0] *= 1.e-3 ; antPos[-1][1] *= 1.e-3
             Xmax = np.max(np.abs(antPos[-1]+[Xmax]))
-          elif it[0]=='ANTENNA2':   
+          elif it[0]=='ANTENNA2':
             antPos2.append(map(float,it[1:]))
             Nant2 += 1
             antPos2[-1][0] *= 1.e-3 ; antPos2[-1][1] *= 1.e-3
             Xmax = np.max(np.abs(antPos2[-1]+[Xmax]))
-          elif it[0]=='DIAMETER':   
+          elif it[0]=='DIAMETER':
             Diams = map(float,it[1:])
             self.Diameters[0] = Diams[0]
             if len(Diams)>1:
@@ -571,7 +571,7 @@ class Interferometer(object):
       H = np.linspace(self.Hcov[0],self.Hcov[1],self.nH)[np.newaxis,:]
       self.Xmax = Xmax*1.5
       fi.close()
-   
+
     return True
 
 
@@ -579,7 +579,7 @@ class Interferometer(object):
 
   def readModels(self,model_file):
 
-    self.imsize = 4. 
+    self.imsize = 4.
     self.imfiles = []
 
     if len(model_file)==0:
@@ -587,7 +587,7 @@ class Interferometer(object):
       self.Xaxmax = self.imsize/2.
       return True
 
-    if len(model_file)>0: 
+    if len(model_file)>0:
      if not os.path.exists(model_file):
       self.showError("\n\nModel file %s does not exist!\n\n"%model_file)
       return False
@@ -601,12 +601,12 @@ class Interferometer(object):
       for li,l in enumerate(fi.readlines()):
         comm = l.find('#')
         if comm>=0:
-          l = l[:comm]     
+          l = l[:comm]
         it = l.split()
         if len(it)>0:
           if it[0]=='IMAGE':
             imfiles.append([str(it[1]),float(it[2])])
-          elif it[0] in ['G','D','P']:   
+          elif it[0] in ['G','D','P']:
             models.append([it[0]]+map(float,it[1:]))
             if models[-1][0] != 'P':
               models[-1][4] = np.abs(models[-1][4])
@@ -656,7 +656,7 @@ class Interferometer(object):
    #  self._plotAntennas(redo=False)
      self._setPrimaryBeam(replotFFT=True)
      self._changeCoordinates(rescale=True,redoUV=redoUV)
-   #  self._plotModelFFT(redo=False) 
+   #  self._plotModelFFT(redo=False)
 
 
 
@@ -704,14 +704,14 @@ class Interferometer(object):
 
     if redoUV:
       self.UVPlot.cla()
-      self._plotModelFFT(redo=True) 
+      self._plotModelFFT(redo=True)
       self._plotAntennas(redo=True,rescale=True)
 
     newtext = self.fmtH%(self.lat/self.deg2rad,self.dec/self.deg2rad,self.Hcov[0]/self.Hfac,self.Hcov[1]/self.Hfac)
     self.latText.set_text(newtext)
     self.Horig =  np.linspace(self.Hcov[0],self.Hcov[1],self.nH)
     H = self.Horig[np.newaxis,:]
-    self.H = [np.sin(H),np.cos(H)] 
+    self.H = [np.sin(H),np.cos(H)]
     self._setBaselines()
     self._setBeam()
     self._plotBeam(redo=False)
@@ -727,7 +727,7 @@ class Interferometer(object):
     self.modelText.set_text(self.fmtM%(modflux,0.0,0.0))
     self.basText.set_text(self.fmtBas%(0,0,0.0))
     self.antPlotBas.set_data([[0],[0]])
-    
+
     pl.draw()
     self.canvas.draw()
 
@@ -766,7 +766,7 @@ class Interferometer(object):
 
 
   def _prepareBeam(self):
-    
+
     self.beam = np.zeros((self.Npix,self.Npix),dtype=np.float32)
     self.totsampling = np.zeros((self.Npix,self.Npix),dtype=np.float32)
     self.dirtymap = np.zeros((self.Npix,self.Npix),dtype=np.float32)
@@ -954,9 +954,9 @@ class Interferometer(object):
          self.totsampling2[self.pixpos2[nb][3],self.pixpos2[nb][0]] -= 1.0
    #      self.Gsampling2[self.pixpos2[nb][1],self.pixpos2[nb][2]] -= self.Gains[nb,goodpix]
    #      self.Gsampling2[self.pixpos2[nb][3],self.pixpos2[nb][0]] -= np.conjugate(self.Gains[nb,goodpix])
-  
+
        self.pixpos2[nb] = [np.copy(pU),np.copy(pV),np.copy(mU),np.copy(mV)]
- 
+
        self.totsampling2[pV,mU] += 1.0
        self.totsampling2[mV,pU] += 1.0
    #    self.Gsampling2[pV,mU] += self.Gains[nb,goodpix]
@@ -976,14 +976,14 @@ class Interferometer(object):
 
   def _setBeam(self,antidx=-1):
 
-   self._gridUV(antidx=antidx) 
+   self._gridUV(antidx=antidx)
 
    denom = 1.+self.robfac*self.totsampling
    self.robustsamp[:] = self.totsampling/denom
    self.Grobustsamp[:] = self.Gsampling/denom
    self.GrobustNoise[:] = self.noisemap/denom
 
-   self.beam[:] = np.fft.ifftshift(np.fft.ifft2(np.fft.fftshift(self.robustsamp))).real/(1.+self.W2W1) 
+   self.beam[:] = np.fft.ifftshift(np.fft.ifft2(np.fft.fftshift(self.robustsamp))).real/(1.+self.W2W1)
  #  self.beamScale = np.max(self.beam[self.Nphf:self.Nphf+1,self.Nphf:self.Nphf+1])
 
    if self.Nant2 > 1:
@@ -1030,7 +1030,7 @@ class Interferometer(object):
       if not os.path.exists(imfile[0]):
         imfile[0] = os.path.join(self.datadir,imfile[0])
         if not os.path.exists(imfile[0]):
-          self.showError('File %s does NOT exist. Cannot read the model!'%imfile[0]) 
+          self.showError('File %s does NOT exist. Cannot read the model!'%imfile[0])
           return
 
       Np4 = self.Npix/4
@@ -1086,11 +1086,11 @@ class Interferometer(object):
     self.modelfft2 = np.fft.fft2(np.fft.fftshift(self.modelim[1]))
     if replotFFT:
       self._plotModelFFT(redo=True)
-      
+
 
 
   def _plotModel(self,redo=True):
-    
+
     Np4 = self.Npix/4
 
     if redo:
@@ -1099,7 +1099,7 @@ class Interferometer(object):
 
       modflux = self.modelimTrue[self.Nphf,self.Nphf]
       self.modelText = self.modelPlot.text(0.05,0.87,self.fmtM%(modflux,0.0,0.0),
-         transform=self.modelPlot.transAxes,bbox=dict(facecolor='white', 
+         transform=self.modelPlot.transAxes,bbox=dict(facecolor='white',
          alpha=0.7))
       pl.setp(self.modelPlotPlot, extent=(self.Xaxmax/2.,-self.Xaxmax/2.,-self.Xaxmax/2.,self.Xaxmax/2.))
       self.modelPlot.set_ylabel('Dec offset (as)')
@@ -1135,7 +1135,7 @@ class Interferometer(object):
        self.UVPlotFFTPlot.norm.vmin = mval-dval
        self.UVPlotFFTPlot.norm.vmax = Mval+dval
 
-    
+
 
 
   def _plotDirty(self,redo=True):
@@ -1159,7 +1159,7 @@ class Interferometer(object):
       self.dirtyPlotPlot = self.dirtyPlot.imshow(self.dirtymap[Np4:self.Npix-Np4,Np4:self.Npix-Np4],interpolation='nearest',picker=True, cmap=self.currcmap)
       modflux = self.dirtymap[self.Nphf,self.Nphf]
       self.dirtyText = self.dirtyPlot.text(0.05,0.87,self.fmtD%(modflux,0.0,0.0),
-         transform=self.dirtyPlot.transAxes,bbox=dict(facecolor='white', 
+         transform=self.dirtyPlot.transAxes,bbox=dict(facecolor='white',
          alpha=0.7))
       pl.setp(self.dirtyPlotPlot, extent=(self.Xaxmax/2.,-self.Xaxmax/2.,-self.Xaxmax/2.,self.Xaxmax/2.))
       self.curzoom[1] = (self.Xaxmax/2.,-self.Xaxmax/2.,-self.Xaxmax/2.,self.Xaxmax/2.)
@@ -1187,7 +1187,7 @@ class Interferometer(object):
       self.lfac = 1.e6
       self.ulab = r'U (M$\lambda$)'
       self.vlab = r'V (M$\lambda$)'
-   
+
 
    if redo:
 
@@ -1211,12 +1211,12 @@ class Interferometer(object):
     self.antPlot.set_title('ARRAY CONFIGURATION')
     self.antText = self.antPlot.text(0.05,0.88,self.fmtA%(self.Nant+self.Nant2),transform=self.antPlot.transAxes)
     self.UVPlotPlot = []
-    toplotu = self.u.flatten()/self.lfac ;  toplotv = self.v.flatten()/self.lfac ; 
+    toplotu = self.u.flatten()/self.lfac ;  toplotv = self.v.flatten()/self.lfac ;
     self.UVPlotPlot.append(self.UVPlot.plot(toplotu, toplotv,'.',color='lime',markersize=1,picker=2)[0])
     self.UVPlotPlot.append(self.UVPlot.plot(-toplotu,-toplotv,'.',color='lime',markersize=1,picker=2)[0])
     if self.Nant2>1:
       self.UVPlotPlot2 = []
-      toplotu = self.u2.flatten()/self.lfac ;  toplotv = self.v2.flatten()/self.lfac ; 
+      toplotu = self.u2.flatten()/self.lfac ;  toplotv = self.v2.flatten()/self.lfac ;
       self.UVPlotPlot2.append(self.UVPlot.plot(toplotu, toplotv,'.r',markersize=1,picker=2)[0])
       self.UVPlotPlot2.append(self.UVPlot.plot(-toplotu,-toplotv,'.r',markersize=1,picker=2)[0])
     self.UVPlot.set_xlim((2.*self.Xmax/self.wavelength[2]/self.lfac,-2.*self.Xmax/self.wavelength[2]/self.lfac))
@@ -1232,7 +1232,7 @@ class Interferometer(object):
 
     self.basText.set_color('orange')
     self.UVPlot.set_xlabel(self.ulab)
-    self.UVPlot.set_ylabel(self.vlab) 
+    self.UVPlot.set_ylabel(self.vlab)
     self.UVPlot.set_title('UV PLANE')
 
     self.antLabelPlot = []
@@ -1263,7 +1263,7 @@ class Interferometer(object):
 
     toplot = np.array(self.antPos[:self.Nant])
     self.antPlotPlot.set_data(toplot[:,0],toplot[:,1])
-    toplotu = self.u.flatten()/self.lfac ;  toplotv = self.v.flatten()/self.lfac ; 
+    toplotu = self.u.flatten()/self.lfac ;  toplotv = self.v.flatten()/self.lfac ;
     for i in range(self.Nant):
       if i>len(self.antLabelPlot)-1:
         self.antLabelPlot.append(self.antPlot.annotate(str(i+1),textcoords = 'offset points',xy=(toplot[i,0],toplot[i,1]),xytext=(-7,4)))
@@ -1276,7 +1276,7 @@ class Interferometer(object):
     if self.Nant2>1:
      toplot = np.array(self.antPos2[:self.Nant2])
      self.antPlotPlot2.set_data(toplot[:,0],toplot[:,1])
-     toplotu = self.u2.flatten()/self.lfac ;  toplotv = self.v2.flatten()/self.lfac ; 
+     toplotu = self.u2.flatten()/self.lfac ;  toplotv = self.v2.flatten()/self.lfac ;
      for i in range(self.Nant2):
        self.antLabelPlot2[i].xy = (toplot[i,0],toplot[i,1])
      self.UVPlotPlot2[0].set_data(toplotu,toplotv)
@@ -1284,9 +1284,9 @@ class Interferometer(object):
 
 
     self.UVPlot.set_xlabel(self.ulab)
-    self.UVPlot.set_ylabel(self.vlab) 
+    self.UVPlot.set_ylabel(self.vlab)
 
-    
+
 
   def _plotBeam(self,redo=True):
 
@@ -1433,7 +1433,7 @@ class Interferometer(object):
 
 
 
-  def _onAntennaDrag(self,event):   
+  def _onAntennaDrag(self,event):
      if self.pickAnt:
       if self.pickSub==0:
         self.antPos[self.antidx] = [event.xdata,event.ydata]
@@ -1506,7 +1506,7 @@ class Interferometer(object):
    newlat *= self.deg2rad
    if not self.lock:
     self.lock = True
-    if newlat != self.lat: 
+    if newlat != self.lat:
      if np.abs(newlat-self.dec)<np.pi/2.:
       self.lat = newlat
       self._changeCoordinates()
@@ -1533,7 +1533,7 @@ class Interferometer(object):
    newdec *= self.deg2rad
    if not self.lock:
     self.lock=True
-    if newdec != self.dec: 
+    if newdec != self.dec:
      if np.abs(newdec-self.lat)<np.pi/2.:
       self.dec = newdec
       self._changeCoordinates()
@@ -1555,10 +1555,10 @@ class Interferometer(object):
       self.Hcov[0] = newH0
     else:
       self.Hcov[0] = -self.Hmax
-      self.widget['H0'].set_val(self.Hcov[0]/self.Hfac) 
+      self.widget['H0'].set_val(self.Hcov[0]/self.Hfac)
     if self.Hcov[1]<self.Hcov[0]:
       self.Hcov[1] = self.Hcov[0]
-      self.widget['H1'].set_val(self.Hcov[1]/self.Hfac) 
+      self.widget['H1'].set_val(self.Hcov[1]/self.Hfac)
     self._changeCoordinates()
     self.lock=False
 
@@ -1576,10 +1576,10 @@ class Interferometer(object):
       self.Hcov[1] = newH1
     else:
       self.Hcov[1] = self.Hmax
-      self.widget['H1'].set_val(self.Hcov[1]/self.Hfac) 
+      self.widget['H1'].set_val(self.Hcov[1]/self.Hfac)
     if self.Hcov[0]>self.Hcov[1]:
       self.Hcov[0] = self.Hcov[1]
-      self.widget['H0'].set_val(self.Hcov[0]/self.Hfac) 
+      self.widget['H0'].set_val(self.Hcov[0]/self.Hfac)
     self._changeCoordinates()
     self.lock=False
 
@@ -1600,7 +1600,7 @@ class Interferometer(object):
 
       self.antLabelPlot[self.Nant-1].set_visible(True)
 
-      newtext = self.fmtA%self.Nant 
+      newtext = self.fmtA%self.Nant
       self.antText.set_text(newtext)
       self._prepareBaselines()
       self._changeCoordinates()
@@ -1619,7 +1619,7 @@ class Interferometer(object):
         self.Nant -= 1
         for i in range(self.Nant,len(self.antLabelPlot)):
            self.antLabelPlot[i].set_visible(False)
-      newtext = self.fmtA%self.Nant 
+      newtext = self.fmtA%self.Nant
       self.antText.set_text(newtext)
       self._prepareBaselines()
       self._changeCoordinates()
@@ -1633,7 +1633,7 @@ class Interferometer(object):
 
       if self.tks is not None:
         self.myUVPLOT2 = UVPLOTTER2(self)
- 
+
 
 
     if event.key == 'c' or event.key == 'C':
@@ -1796,13 +1796,13 @@ class Interferometer(object):
     self.canvas.draw()
 
     time.sleep(3)
-    self.antText.set_text(self.fmtA%self.Nant) 
+    self.antText.set_text(self.fmtA%self.Nant)
     pl.draw()
     self.canvas.draw()
 
     iff.close()
 
-          
+
     return
 
 
@@ -1817,7 +1817,7 @@ class Interferometer(object):
       if goodread:
 
         self.GUIres = False
-        newtext = self.fmtA%self.Nant 
+        newtext = self.fmtA%self.Nant
         self.antText.set_text(newtext)
         self.widget['diameter'].set_val(self.Diameters[0])
         self.widget['lat'].set_val(self.lat/self.deg2rad)
@@ -1833,7 +1833,7 @@ class Interferometer(object):
 
         self._prepareBaselines()
         self._setBaselines()
-        self._plotModelFFT(redo=True) 
+        self._plotModelFFT(redo=True)
         self._plotAntennas(redo=True,rescale=True)
         self._plotModel(redo=True)
         self._changeCoordinates(redoUV=True)
@@ -1858,7 +1858,7 @@ class Interferometer(object):
         self._setBaselines()
         self._setBeam()
         self._changeCoordinates()
-        self._plotModelFFT(redo=True) 
+        self._plotModelFFT(redo=True)
         self._plotBeam(redo=True)
         self._plotDirty(redo=True)
         pl.draw()
@@ -1907,8 +1907,8 @@ class CLEANer(object):
     self.me.protocol("WM_DELETE_WINDOW", self.quit)
     self.Np4 = self.parent.Npix/4
 
-    self.figCL1 = pl.figure(figsize=(12,6))    
-  #  self.figCL2 = pl.figure(figsize=(6,6))    
+    self.figCL1 = pl.figure(figsize=(12,6))
+  #  self.figCL2 = pl.figure(figsize=(6,6))
 
     self.ResidPlot = self.figCL1.add_subplot(121,aspect='equal') #pl.axes([0.01,0.43,0.5,0.5],aspect='equal')
     self.CLEANPlot = self.figCL1.add_subplot(122,aspect='equal',sharex=self.ResidPlot,sharey=self.ResidPlot) #pl.axes([0.55,0.43,0.5,0.5],aspect='equal')
@@ -2088,7 +2088,7 @@ class CLEANer(object):
       showinfo('ERROR!','Please, check the content of Sensit!\nIt should be a number!')
       return
 
-    if sensit < 0.0: 
+    if sensit < 0.0:
       showinfo('ERROR!','The sensitivity should be >= 0!')
       return
 
@@ -2136,7 +2136,7 @@ class CLEANer(object):
     del clarr, rsarr
 
   # self.CLEANPlot.autoscale() #.norm.vmin = np.min(clarr)
-    
+
     self.canvas1.draw()
 
 
@@ -2206,7 +2206,7 @@ class CLEANer(object):
       self.xydata = [RA,Dec]
       self.xy0[1] = np.floor((self.Xaxmax-RA)/(2.*self.Xaxmax)*self.parent.Npix)
       self.xy0[0] = np.floor((self.Xaxmax-Dec)/(2.*self.Xaxmax)*self.parent.Npix)
-      self.moved = False 
+      self.moved = False
 
   def _onRelease(self,event):
 
@@ -2367,7 +2367,7 @@ class CLEANer(object):
         fit = spfit.leastsq(lambda x: np.exp(-(dX*dX*x[0]+dY*dY*x[1]+dX*dY*x[2]))-self.parent.beam[MainLobe],[1.,1.,0.])
         Pang = 180./np.pi*(np.arctan2(fit[0][2],(fit[0][0]-fit[0][1]))/2.)
         AmB = fit[0][2]/np.sin(2.*np.pi/180.*Pang) ;  ApB = fit[0][0]+fit[0][1]
-        A = 2.355*(2./(ApB + AmB))**0.5*self.parent.imsize/self.parent.Npix  
+        A = 2.355*(2./(ApB + AmB))**0.5*self.parent.imsize/self.parent.Npix
         B = 2.355*(2./(ApB - AmB))**0.5*self.parent.imsize/self.parent.Npix
         if A < B:
           A, B = B, A
@@ -2535,14 +2535,14 @@ class CLEANer(object):
     self.convSource = Tk.Toplevel(self.me)
     self.convSource.title("True source image")
 
-    self.figCS1 = pl.figure(figsize=(6,6))    
+    self.figCS1 = pl.figure(figsize=(6,6))
 
     self.CS1 = self.figCS1.add_subplot(111,aspect='equal') #pl.axes([0.55,0.43,0.5,0.5],aspect='equal')
 
     self.figCS1.subplots_adjust(left=0.05,right=0.98)
 
     self.CSText = self.CS1.text(0.05,0.87,self.parent.fmtD%(0.0,0.,0.),
-         transform=self.CS1.transAxes,bbox=dict(facecolor='white', 
+         transform=self.CS1.transAxes,bbox=dict(facecolor='white',
          alpha=0.7))
 
 
@@ -2601,7 +2601,7 @@ class CLEANer(object):
 
 
   def _onCSPick(self,event):
-  
+
 
      RA = event.mouseevent.xdata
      Dec = event.mouseevent.ydata
@@ -2641,7 +2641,7 @@ class UVPLOTTER2(object):
     menubar.add_command(label="Quit", command=self.quit)
     self.FFTwin.config(menu=menubar)
 
-    self.figUV1 = pl.figure(figsize=(10,4))    
+    self.figUV1 = pl.figure(figsize=(10,4))
 
     self.UVPSF = self.figUV1.add_subplot(131,aspect='equal')
 
@@ -2657,15 +2657,15 @@ class UVPLOTTER2(object):
     self.PSFfmt = '%.2e'
 
     self.PSFText = self.UVPSF.text(0.05,0.87,self.PSFfmt%(0.0),
-         transform=self.UVPSF.transAxes,bbox=dict(facecolor='white', 
+         transform=self.UVPSF.transAxes,bbox=dict(facecolor='white',
          alpha=0.7))
 
     self.UVSOURCEText = self.UVSOURCE.text(0.05,0.87,self.UVfmt%(0.0),
-         transform=self.UVSOURCE.transAxes,bbox=dict(facecolor='white', 
+         transform=self.UVSOURCE.transAxes,bbox=dict(facecolor='white',
          alpha=0.7))
 
     self.UVOBSText = self.UVOBS.text(0.05,0.87,self.UVfmt%(0.0),
-         transform=self.UVOBS.transAxes,bbox=dict(facecolor='white', 
+         transform=self.UVOBS.transAxes,bbox=dict(facecolor='white',
          alpha=0.7))
 
 
@@ -2705,7 +2705,7 @@ class UVPLOTTER2(object):
 
     self.UVPSF.set_title('UV - PSF')
 
-    
+
     Toplot = np.abs(np.fft.fftshift(np.fft.fft2(np.fft.fftshift(self.parent.dirtymap))))
 
     vmax = np.max(Toplot)
@@ -2739,7 +2739,7 @@ class UVPLOTTER2(object):
 
 
   def _onUVPick(self,event):
-   
+
     Up = event.mouseevent.xdata-self.parent.UVSh
     Vp = event.mouseevent.ydata+self.parent.UVSh
 
@@ -2802,7 +2802,7 @@ class UVPLOTTER(object):
     menubar.add_command(label="Quit", command=self.quit)
     self.FFTwin.config(menu=menubar)
 
-    self.figUV1 = pl.figure(figsize=(8.5,7))    
+    self.figUV1 = pl.figure(figsize=(8.5,7))
 
     self.UVPSF = self.figUV1.add_subplot(231,aspect='equal')
     pl.setp(self.UVPSF.get_xticklabels(),visible=False)
@@ -2827,27 +2827,27 @@ class UVPLOTTER(object):
     self.PSFfmt = '%.2e'
 
     self.PSFText = self.UVPSF.text(0.05,0.87,self.PSFfmt%(0.0),
-         transform=self.UVPSF.transAxes,bbox=dict(facecolor='white', 
+         transform=self.UVPSF.transAxes,bbox=dict(facecolor='white',
          alpha=0.7))
 
     self.ResidText = self.UVResid.text(0.05,0.87,self.UVfmt%(0.0),
-         transform=self.UVResid.transAxes,bbox=dict(facecolor='white', 
+         transform=self.UVResid.transAxes,bbox=dict(facecolor='white',
          alpha=0.7))
 
     self.CLEANText = self.UVCLEAN.text(0.05,0.87,self.UVfmt%(0.0),
-         transform=self.UVCLEAN.transAxes,bbox=dict(facecolor='white', 
+         transform=self.UVCLEAN.transAxes,bbox=dict(facecolor='white',
          alpha=0.7))
 
     self.CLEANMODText = self.UVCLEANMOD.text(0.05,0.87,self.UVfmt%(0.0),
-         transform=self.UVCLEANMOD.transAxes,bbox=dict(facecolor='white', 
+         transform=self.UVCLEANMOD.transAxes,bbox=dict(facecolor='white',
          alpha=0.7))
 
     self.UVSOURCEText = self.UVSOURCE.text(0.05,0.87,self.UVfmt%(0.0),
-         transform=self.UVSOURCE.transAxes,bbox=dict(facecolor='white', 
+         transform=self.UVSOURCE.transAxes,bbox=dict(facecolor='white',
          alpha=0.7))
 
     self.UVSOURCECONVText = self.UVSOURCECONV.text(0.05,0.87,self.UVfmt%(0.0),
-         transform=self.UVSOURCECONV.transAxes,bbox=dict(facecolor='white', 
+         transform=self.UVSOURCECONV.transAxes,bbox=dict(facecolor='white',
          alpha=0.7))
 
 
@@ -2962,7 +2962,7 @@ class UVPLOTTER(object):
 
 
   def _onUVPick(self,event):
-   
+
     Up = event.mouseevent.xdata-self.parent.UVSh
     Vp = event.mouseevent.ydata+self.parent.UVSh
 
@@ -3013,4 +3013,3 @@ if __name__ == "__main__":
 
   myint = Interferometer(tkroot=root)
   Tk.mainloop()
-
