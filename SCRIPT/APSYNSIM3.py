@@ -889,17 +889,16 @@ class Interferometer(object):
 
         for currBas in bas2change:
             n1, n2 = self.antnum[currBas]
-            self.B[currBas, 0] = -(self.antPos[n2][1] - self.antPos[n1][1]
-                                   ) * self.trlat[0] / self.wavelength[2]
-            self.B[currBas, 1] = (self.antPos[n2][0] -
-                                  self.antPos[n1][0]) / self.wavelength[2]
-            self.B[currBas, 2] = (self.antPos[n2][1] - self.antPos[n1][1]
-                                  ) * self.trlat[1] / self.wavelength[2]
-            self.u[currBas, :] = -(self.B[currBas, 0] * self.H[0] +
-                                   self.B[currBas, 1] * self.H[1])
-            self.v[currBas, :] = -self.B[currBas, 0] * self.trdec[0] * self.H[
-                1] + self.B[currBas, 1] * self.trdec[0] * self.H[
-                    0] + self.trdec[1] * self.B[currBas, 2]
+            self.B[currBas, 0] = -(self.antPos[n2][1] - self.antPos[n1][1]) \
+                                 * self.trlat[0] / self.wavelength[2]
+            self.B[currBas, 1] = (self.antPos[n2][0] - self.antPos[n1][0]) \
+                                 / self.wavelength[2]
+            self.B[currBas, 2] = (self.antPos[n2][1] - self.antPos[n1][1]) \
+                                 * self.trlat[1] / self.wavelength[2]
+            self.u[currBas, :] = -(self.B[currBas, 0] * self.H[0] + self.B[currBas, 1] * self.H[1])
+            self.v[currBas, :] = -self.B[currBas, 0] * self.trdec[0] * self.H[1] \
+                                 + self.B[currBas, 1] * self.trdec[0] * self.H[0] \
+                                 + self.trdec[1] * self.B[currBas, 2]
 
         if self.Nant2 > 1:
 
@@ -956,7 +955,7 @@ class Interferometer(object):
             mU = -pixU[goodpix] + self.Nphf
             mV = -pixV[goodpix] + self.Nphf
 
-            if not antidx == -1:
+            if antidx != -1:
                 self.totsampling[self.pixpos[nb][1], self.pixpos[nb][2]] -= 1.0
                 self.totsampling[self.pixpos[nb][3], self.pixpos[nb][0]] -= 1.0
                 self.Gsampling[self.pixpos[nb][1], self.
@@ -1016,7 +1015,7 @@ class Interferometer(object):
                 pV = pixV[goodpix] + self.Nphf
                 mU = -pixU[goodpix] + self.Nphf
                 mV = -pixV[goodpix] + self.Nphf
-                if not antidx == -1:
+                if antidx != -1:
                     self.totsampling2[self.pixpos2[nb][1], self.
                                       pixpos2[nb][2]] -= 1.0
                     self.totsampling2[self.pixpos2[nb][3], self.
@@ -2292,13 +2291,13 @@ class CLEANer(object):
         try:
             sensit = float(self.entries['Sensit'].get())
         except:
-            showinfo(
+            messagebox.showinfo(
                 'ERROR!',
                 'Please, check the content of Sensit!\nIt should be a number!')
             return
 
         if sensit < 0.0:
-            showinfo('ERROR!', 'The sensitivity should be >= 0!')
+            messagebox.showinfo('ERROR!', 'The sensitivity should be >= 0!')
             return
 
         # Get the number of baselines and the number of integration times:
@@ -2351,7 +2350,7 @@ class CLEANer(object):
         try:
             an1 = int(self.entries['Ant1'].curselection()[0])
         except:
-            showinfo('WARNING!', 'No antenna selected!')
+            messagebox.showinfo('WARNING!', 'No antenna selected!')
             return
 
         try:
@@ -2475,7 +2474,7 @@ class CLEANer(object):
     def _AddRes(self):
 
         if not self.dorestore:
-            showinfo(
+            messagebox.showinfo(
                 'ERROR',
                 'Cannot add residual to the (unrestored) CLEAN model!\nRestore first!'
             )
@@ -2608,7 +2607,7 @@ class CLEANer(object):
         self.cleanBeam = np.zeros(np.shape(self.residuals))
 
         if len(MainLobe[0]) < 5:
-            showinfo(
+            messagebox.showinfo(
                 'ERROR!',
                 'The main lobe of the PSF is too narrow!\n CLEAN model will not be restored'
             )
@@ -2665,7 +2664,7 @@ class CLEANer(object):
 
                 del ddX, ddY
             except:
-                showinfo(
+                messagebox.showinfo(
                     'ERROR!',
                     'Problems fitting the PSF main lobe!\n CLEAN model will not be restored'
                 )
@@ -2701,7 +2700,7 @@ class CLEANer(object):
             niter = int(self.entries['Niter'].get())
             thrs = float(self.entries['Thres'].get())
         except:
-            showinfo(
+            messagebox.showinfo(
                 'ERROR!',
                 'Please, check the content of Gain, iterations, and Thres!\nShould be numbers!'
             )
@@ -2716,7 +2715,7 @@ class CLEANer(object):
                     tempres = np.abs(tempres)
 
                 if np.sum(tempres) == 0.0:
-                    showinfo('INFO', 'Threshold reached in CLEAN masks!')
+                    messagebox.showinfo('INFO', 'Threshold reached in CLEAN masks!')
                     break
 
             rslice = self.residuals[self.Np4:self.parent.Npix -
