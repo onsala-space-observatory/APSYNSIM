@@ -15,15 +15,20 @@ which is located in the APSYNSIM directory.
 If you work on Mac, try to run the script (located in either the SCRIPT
 or the SOURCE_CODE directory) with the command:
 
+``` shell
 pythonw APSYNSIM.py
-
+```
 (notice the "w" at the end of the "python").
 
-If the GUI does not respond well, then run the binary "APSYNSIM.app"
-(located in the APSYNSIM directory) *from*the*command*line*.
+If the GUI does not respond well, then run the binary `APSYNSIM.app`
+(located in the `APSYNSIM` directory) **from the command line**.
 
 If you work on Linux, open a terminal, go to the the directory
-called SCRIPT (or SOURCE_CODE), and run the command "python APSYNSIM.py".
+called `SCRIPT` and run the command
+
+``` shell
+python APSYNSIM.py".
+```
 
 ## Usage
 
