@@ -9,19 +9,8 @@ A warm acknowledgement to J. Girard, for very useful feedback!
 
 ## Running APSYNSIM
 
-If you work on Mac, try to run the script (located in the SCRIPT
-directory) with the command:
-
-``` shell
-pythonw APSYNSIM[23].py    # where 2 or 3 is the python version
-```
-(notice the "w" at the end of the "python").
-
-If the GUI does not respond well, then run the binary `APSYNSIM.app`
-(located in the `APSYNSIM` directory) **from the command line**.
-
-If you work on Linux, open a terminal, go to the the directory
-called `SCRIPT` and run the command
+Open a terminal, go to the the directory called `SCRIPT` and run the
+command
 
 ``` shell
 python APSYNSIM[23].py"    # where 2 or 3 is the python version
