@@ -320,8 +320,8 @@ class Interferometer(object):
         self.dirtyPlot = self.figUV.add_subplot(236, aspect='equal')
 
         self.spherePlot = pl.axes([0.53, 0.82, 0.12, 0.12],
-                                  projection='3d',
-                                  aspect='equal')
+                                  projection='3d')
+        self.spherePlot.set_box_aspect([1., 1., 1.])
 
         u = np.linspace(0, 2 * np.pi, 100)
         v = np.linspace(0, np.pi, 100)
